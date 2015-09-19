@@ -1,6 +1,6 @@
 {
   "name": "split-tracklist",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "split tracklist text to object contains artist and title of each track ",
   "main": "dist/index.js",
   "scripts": {
@@ -17,7 +17,9 @@
     "url": "git+https://github.com/ewnd9/split-tracklist.git"
   },
   "keywords": [
-    "split", "tracklist", "text-processing"
+    "split",
+    "tracklist",
+    "text-processing"
   ],
   "author": "ewnd9 <ewndnine@gmail.com>",
   "license": "MIT",
