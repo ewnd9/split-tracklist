@@ -2,11 +2,11 @@
 let splitToArtistAndTitle = (text) => {
   var regExps = [];
 
-  regExps.push(/[\d\.\s]*(.+)\s[\-\–]\s(.+)\s\[(.*)\]/); // full template $artist - $title [$label]
-  regExps.push(/[\d\.\s]*(.+)\s[\-\–]\s(.+)/);           // without label comment $artist - $title
-  regExps.push(/[\d\.\s]*(.+)\s[\-\–](.+)\s\[(.*)\]/);   // assume typo like $artist -$title [$label]
-  regExps.push(/[\d\.\s]*(.+)[\-\–]\s(.+)\s\[(.*)\]/);   // assume typo like $artist- $title [$label]
-  regExps.push(/[\d\.\s]*(.+)[\-\–](.+)\s\[(.*)\]/);     // assume typo like $artist-$title [$label]
+  regExps.push(/[\d\.\s]*((.+)\s[\-\–]\s(.+))\s\[(.*)\]/); // full template $artist - $title [$label]
+  regExps.push(/[\d\.\s]*((.+)\s[\-\–]\s(.+))/);           // without label comment $artist - $title
+  regExps.push(/[\d\.\s]*((.+)\s[\-\–](.+))\s\[(.*)\]/);   // assume typo like $artist -$title [$label]
+  regExps.push(/[\d\.\s]*((.+)[\-\–]\s(.+))\s\[(.*)\]/);   // assume typo like $artist- $title [$label]
+  regExps.push(/[\d\.\s]*((.+)[\-\–](.+))\s\[(.*)\]/);     // assume typo like $artist-$title [$label]
 
   // all that mess with typo variatins comes from aware of artist and tracks who contains '-' itself
 
@@ -32,11 +32,12 @@ export default (text) => {
     if (x) {
       var result = {};
 
-      result.artist = x[1].trim().replace(/&amp;/g, '&');
-      result.title = x[2].trim().replace(/&amp;/g, '&');
+      result.track = x[1].trim().replace(/&amp;/g, '&');
+      result.artist = x[2].trim().replace(/&amp;/g, '&');
+      result.title = x[3].trim().replace(/&amp;/g, '&');
 
-      if (x[3]) {
-        result.comment = x[3].trim();
+      if (x[4]) {
+        result.comment = x[4].trim();
       }
 
       return result;
