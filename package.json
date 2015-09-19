@@ -1,0 +1,30 @@
+{
+  "name": "split-tracklist",
+  "version": "1.0.0",
+  "description": "split tracklist text to object contains artist and title of each track ",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node cli.js",
+    "test": "mocha --require babel/register",
+    "test:watch": "mocha -w --require babel/register",
+    "prebuild": "rm -rf dist && mkdir dist",
+    "build": "babel -d dist/ src/",
+    "prepublish": "npm run build"
+  },
+  "preferGlobal": "false",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ewnd9/split-tracklist.git"
+  },
+  "keywords": [
+    "split", "tracklist", "text-processing"
+  ],
+  "author": "ewnd9 <ewndnine@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "babel": "^5.8.21",
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5"
+  }
+}
